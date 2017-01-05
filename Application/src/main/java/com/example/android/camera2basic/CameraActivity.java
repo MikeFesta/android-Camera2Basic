@@ -18,6 +18,8 @@ package com.example.android.camera2basic;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 
 public class CameraActivity extends Activity {
 
@@ -30,6 +32,18 @@ public class CameraActivity extends Activity {
                     .replace(R.id.container, Camera2BasicFragment.newInstance())
                     .commit();
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP){
+            Log.d("mfesta", "Volume Up Key Press");
+            Camera2BasicFragment fragment = (Camera2BasicFragment) getFragmentManager().findFragmentById(R.id.container);
+            fragment.takePicture();
+            return true; // prevent the volume from changing
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
 }

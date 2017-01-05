@@ -431,6 +431,8 @@ public class Camera2BasicFragment extends Fragment
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
     }
 
+
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -765,7 +767,8 @@ public class Camera2BasicFragment extends Fragment
     /**
      * Initiate a still image capture.
      */
-    private void takePicture() {
+    public void takePicture() {
+        Log.d("mfesta", "Take Picture");
         lockFocus();
     }
 
